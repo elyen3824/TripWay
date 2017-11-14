@@ -9,9 +9,6 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TripWayCSharp.csproj">
-      <Project>{56037670-EF9D-48C8-9E38-214C0B5DB197}</Project>
-      <Name>TripWayCSharp</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\TripWay.Library\TripWay.Library.csproj" />
   </ItemGroup>
 </Project>

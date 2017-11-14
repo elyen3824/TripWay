@@ -6,6 +6,11 @@ namespace TripWay.Library
         private Vertex to;
         private int weight;
 
+        public Vertex From { get { return from; } }
+        public Vertex To { get { return to; } }
+        public int Weight { get { return weight; } }
+
+
         public WeightedEdge(Vertex from, Vertex to, int weight)
         {
             this.from = from;

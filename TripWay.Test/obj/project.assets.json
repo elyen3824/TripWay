@@ -1660,17 +1660,14 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "TripWayCSharp/1.0.0": {
+      "TripWay.Library/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v2.0",
-        "dependencies": {
-          "Microsoft.NETCore.App": "2.0.0"
-        },
+        "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/TripWayCSharp.dll": {}
+          "bin/placeholder/TripWay.Library.dll": {}
         },
         "runtime": {
-          "bin/placeholder/TripWayCSharp.dll": {}
+          "bin/placeholder/TripWay.Library.dll": {}
         }
       }
     }
@@ -5618,17 +5615,17 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "TripWayCSharp/1.0.0": {
+    "TripWay.Library/1.0.0": {
       "type": "project",
-      "path": "../TripWayCSharp.csproj",
-      "msbuildProject": "../TripWayCSharp.csproj"
+      "path": "../TripWay.Library/TripWay.Library.csproj",
+      "msbuildProject": "../TripWay.Library/TripWay.Library.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
-      "TripWayCSharp >= 1.0.0",
+      "TripWay.Library >= 1.0.0",
       "xunit >= 2.2.0",
       "xunit.runner.visualstudio >= 2.2.0"
     ]
@@ -5657,8 +5654,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/home/julien/RiderProjects/TripWayCSharp/TripWayCSharp.csproj": {
-              "projectPath": "/home/julien/RiderProjects/TripWayCSharp/TripWayCSharp.csproj"
+            "/home/julien/RiderProjects/TripWayCSharp/TripWay.Library/TripWay.Library.csproj": {
+              "projectPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Library/TripWay.Library.csproj"
             }
           }
         }

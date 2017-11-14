@@ -3,4 +3,22 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="TripWay.Test\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="TripWay.Test\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="TripWay.Test\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="TripWay.Library\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="TripWay.Library\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="TripWay.Library\**" />
+  </ItemGroup>
 </Project>
