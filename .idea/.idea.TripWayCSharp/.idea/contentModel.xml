@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2017.2/system/resharper-host/local/Transient/ReSharperHost/v10/SolutionCaches/_TripWayCSharp.-1443556203.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.reporters.netstandard15.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.utility.netstandard15.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Program.cs" t="Include" />
+      <e p="TripWay.Library" t="IncludeRecursive">
+        <e p="Graph.cs" t="Include" />
+        <e p="TripWay.Library.csproj" t="IncludeRecursive" />
+        <e p="Vertex.cs" t="Include" />
+        <e p="WeightedEdge.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="TripWay.Library.AssemblyInfo.cs" t="Include" />
+              <e p="TripWay.Library.AssemblyInfoInputs.cache" t="Include" />
+            </e>
+          </e>
+          <e p="TripWay.Library.csproj.nuget.cache" t="Include" />
+          <e p="TripWay.Library.csproj.nuget.g.props" t="Include" />
+          <e p="TripWay.Library.csproj.nuget.g.targets" t="Include" />
+          <e p="project.assets.json" t="Include" />
+          <e p="project.packagespec.json" t="Include" />
+        </e>
+      </e>
+      <e p="TripWay.Test" t="IncludeRecursive">
+        <e p="TripWay.Test.csproj" t="IncludeRecursive" />
+        <e p="UnitTest1.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="TripWay.Test.AssemblyInfo.cs" t="Include" />
+              <e p="TripWay.Test.AssemblyInfoInputs.cache" t="Include" />
+              <e p="TripWay.Test.Program.cs" t="Include" />
+            </e>
+          </e>
+          <e p="TripWay.Test.csproj.nuget.cache" t="Include" />
+          <e p="TripWay.Test.csproj.nuget.g.props" t="Include" />
+          <e p="TripWay.Test.csproj.nuget.g.targets" t="Include" />
+          <e p="project.assets.json" t="Include" />
+          <e p="project.packagespec.json" t="Include" />
+        </e>
+      </e>
+      <e p="TripWayCSharp.csproj" t="IncludeRecursive" />
+      <e p="TripWayCSharp.sln" t="IncludeFlat" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp2.0" t="Include">
+            <e p="TripWayCSharp.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
