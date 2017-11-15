@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Priority_Queue;
 
 namespace TripWay.Library
 {
@@ -29,8 +30,8 @@ namespace TripWay.Library
 
         public IList<WeightedEdge> MinimumSpanningTree(Vertex startVertex)
         {
+            SimplePriorityQueue<WeightedEdge> pq2 = new SimplePriorityQueue<WeightedEdge>();
             IList<WeightedEdge> result =  new List<WeightedEdge>();
-            Queue<WeightedEdge> pq = new Queue<WeightedEdge>();
             Dictionary<Vertex,bool> visited = new Dictionary<Vertex,bool>();
 
             Action<Vertex> visit = vertex =>
@@ -41,15 +42,15 @@ namespace TripWay.Library
                 foreach (var edge in edges)
                 {
                     if (!visited.ContainsKey(edge.To))
-                        pq.Enqueue(edge);
+                        pq2.Enqueue(edge,edge.Weight);
                 }
             };
 
             visit(startVertex);
             
-            while (pq.Count > 0)
+            while (pq2.Any())
             {
-                WeightedEdge edgeInQueue = pq.Dequeue();
+                WeightedEdge edgeInQueue = pq2.Dequeue();
                 if (visited.ContainsKey(edgeInQueue.To))
                    continue;
                 result.Add(edgeInQueue);
