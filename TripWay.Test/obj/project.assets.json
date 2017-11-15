@@ -599,6 +599,15 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
+      "OptimizedPriorityQueue/4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Priority Queue.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Priority Queue.dll": {}
+        }
+      },
       "runtime.native.System/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1663,6 +1672,9 @@
       "TripWay.Library/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "OptimizedPriorityQueue": "4.1.1"
+        },
         "compile": {
           "bin/placeholder/TripWay.Library.dll": {}
         },
@@ -2445,6 +2457,33 @@
         "newtonsoft.json.9.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "OptimizedPriorityQueue/4.1.1": {
+      "sha512": "d5XJqkj122UrGrBt/7DQuseohSjuQj7uB7nrxaQV2RHQJ3BdGyoIHtYOrKEx54G2ldUT8HDfjV/6ag2FHCnTyA==",
+      "type": "package",
+      "path": "optimizedpriorityqueue/4.1.1",
+      "files": [
+        "lib/net20/Priority Queue.dll",
+        "lib/net20/Priority Queue.pdb",
+        "lib/net20/Priority Queue.xml",
+        "lib/net35-unity full v3.5/Priority Queue.dll",
+        "lib/net35-unity full v3.5/Priority Queue.pdb",
+        "lib/net35-unity full v3.5/Priority Queue.xml",
+        "lib/net35-unity subset v3.5/Priority Queue.dll",
+        "lib/net35-unity subset v3.5/Priority Queue.pdb",
+        "lib/net35-unity subset v3.5/Priority Queue.xml",
+        "lib/net45/Priority Queue.dll",
+        "lib/net45/Priority Queue.pdb",
+        "lib/net45/Priority Queue.xml",
+        "lib/netstandard1.0/Priority Queue.dll",
+        "lib/netstandard1.0/Priority Queue.pdb",
+        "lib/netstandard1.0/Priority Queue.xml",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Priority Queue.dll",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Priority Queue.pdb",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Priority Queue.xml",
+        "optimizedpriorityqueue.4.1.1.nupkg.sha512",
+        "optimizedpriorityqueue.nuspec"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -5631,42 +5670,57 @@
     ]
   },
   "packageFolders": {
-    "/home/julien/.nuget/packages/": {}
+    "C:\\Users\\julien_pohie\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Test/TripWay.Test.csproj",
+      "projectUniqueName": "C:\\Users\\julien_pohie\\Documents\\TripWay\\TripWay\\TripWay.Test\\TripWay.Test.csproj",
       "projectName": "TripWay.Test",
-      "projectPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Test/TripWay.Test.csproj",
-      "packagesPath": "/home/julien/.nuget/packages/",
-      "outputPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Test/obj/",
+      "projectPath": "C:\\Users\\julien_pohie\\Documents\\TripWay\\TripWay\\TripWay.Test\\TripWay.Test.csproj",
+      "packagesPath": "C:\\Users\\julien_pohie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\julien_pohie\\Documents\\TripWay\\TripWay\\TripWay.Test\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/home/julien/.config/NuGet/NuGet.Config"
+        "C:\\Users\\julien_pohie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://dmvmfbld1.oldev.preol.dell.com/NugetFeed/nuget/": {},
+        "http://dolenvbdrop1.oldev.preol.dell.com/NuGet/Release/NuGet/": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/home/julien/RiderProjects/TripWayCSharp/TripWay.Library/TripWay.Library.csproj": {
-              "projectPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Library/TripWay.Library.csproj"
+            "C:\\Users\\julien_pohie\\Documents\\TripWay\\TripWay\\TripWay.Library\\TripWay.Library.csproj": {
+              "projectPath": "C:\\Users\\julien_pohie\\Documents\\TripWay\\TripWay\\TripWay.Library\\TripWay.Library.csproj"
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
+            "version": "2.0",
+            "autoReferenced": true
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",

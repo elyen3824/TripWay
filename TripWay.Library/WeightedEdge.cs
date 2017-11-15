@@ -1,3 +1,7 @@
+using System;
+using System.Text;
+using System.Security.Cryptography;
+
 namespace TripWay.Library
 {
     public class WeightedEdge
@@ -47,5 +51,14 @@ namespace TripWay.Library
             
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            using(var md5 = MD5.Create())
+            {
+                var hash = md5.ComputeHash(Encoding.UTF8.GetBytes($"{this.From}{this.To}{this.Weight}"));
+                return  BitConverter.ToInt32(hash,0);
+            }
+        }        
     }
 }
