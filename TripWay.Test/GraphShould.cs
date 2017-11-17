@@ -59,5 +59,16 @@ namespace TripWay.Test
             Assert.True(result[1] == trocaderoToArcDeTriomphe);
             Assert.True(result[2] == arcDeTriompheToMontmartre);
         }
+
+        [Fact]
+        public void Find_The_Shortest_Path_To_Go_Throught_All_Edges()
+        {
+            var result = graph.Dijkstra(effeilTowerVertex);
+
+            Assert.True(result.Count == 3);
+            Assert.True(result[0] == effeilTowerToTrocaderoEdge);
+            Assert.True(result[1] == trocaderoToArcDeTriomphe);
+            Assert.True(result[2] == arcDeTriompheToMontmartre);
+        }
     }
 }

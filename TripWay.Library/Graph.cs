@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using Priority_Queue;
 
 namespace TripWay.Library
@@ -31,8 +33,8 @@ namespace TripWay.Library
         public IList<WeightedEdge> MinimumSpanningTree(Vertex startVertex)
         {
             SimplePriorityQueue<WeightedEdge> pq2 = new SimplePriorityQueue<WeightedEdge>();
-            IList<WeightedEdge> result =  new List<WeightedEdge>();
-            Dictionary<Vertex,bool> visited = new Dictionary<Vertex,bool>();
+            IList<WeightedEdge> result = new List<WeightedEdge>();
+            Dictionary<Vertex, bool> visited = new Dictionary<Vertex, bool>();
 
             Action<Vertex> visit = vertex =>
             {
@@ -42,22 +44,52 @@ namespace TripWay.Library
                 foreach (var edge in edges)
                 {
                     if (!visited.ContainsKey(edge.To))
-                        pq2.Enqueue(edge,edge.Weight);
+                        pq2.Enqueue(edge, edge.Weight);
                 }
             };
 
             visit(startVertex);
-            
+
             while (pq2.Any())
             {
                 WeightedEdge edgeInQueue = pq2.Dequeue();
                 if (visited.ContainsKey(edgeInQueue.To))
-                   continue;
+                    continue;
                 result.Add(edgeInQueue);
                 visit(edgeInQueue.To);
             }
 
             return result;
+        }
+
+        public IList<WeightedEdge> Dijkstra(Vertex startingVertex)
+        {
+
+        }
+
+        internal class DijkstraNode
+        {
+            public Vertex Vertex { get; set; }
+            public int Distance { get; set; }
+
+            public override bool Equals(object obj)
+            {
+                var convertedObj = obj as DijkstraNode;
+                if (convertedObj != null)
+                    return this.Distance == convertedObj.Distance;
+
+                return false;
+            }
+
+            public override int GetHashCode()
+            {
+                using (var md5 = MD5.Create())
+                {
+                    var hash = md5.ComputeHash(Encoding.UTF8.GetBytes($"{this.Vertex.Name}{this.Distance}"));
+                    return BitConverter.ToInt32(hash, 0);
+                }
+            }
+
         }
     }
 }

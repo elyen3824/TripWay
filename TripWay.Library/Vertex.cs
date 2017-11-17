@@ -2,11 +2,11 @@ namespace TripWay.Library
 {
     public class Vertex
     {
-        private string name;
+        public string Name { get; private set; }
 
         public Vertex(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
     }
 }
