@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    build:
+      image: microsoft/aspnetcore-build
+      volumes:
+        - .:/app
+      working_dir: /app/VisitPath
+      command: /bin/bash -c "npm install && dotnet restore && dotnet build && dotnet publish -c Release -o ./obj/Docker/publish"

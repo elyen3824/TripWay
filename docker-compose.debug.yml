@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  tripwaycsharp:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+    ports:
+      - "80:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+    volumes:
+      - ./VisitPath/obj/Docker/publish/:/app
+      - ~/.nuget/packages:/root/.nuget/packages:ro

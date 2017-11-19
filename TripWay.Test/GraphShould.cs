@@ -63,12 +63,15 @@ namespace TripWay.Test
         [Fact]
         public void Find_The_Shortest_Path_To_Go_Throught_All_Edges()
         {
-            var result = graph.Dijkstra(effeilTowerVertex);
+            var result = graph.Dijkstra(effeilTowerVertex,0);
 
-            Assert.True(result.Count == 3);
-            Assert.True(result[0] == effeilTowerToTrocaderoEdge);
-            Assert.True(result[1] == trocaderoToArcDeTriomphe);
-            Assert.True(result[2] == arcDeTriompheToMontmartre);
+            WeightedEdge[] weightedEdges=new WeightedEdge[3];
+            result.Item1.Values.CopyTo(weightedEdges,0);
+
+            Assert.True(result.Item1.Values.Count == 3);
+            Assert.True(weightedEdges[0] == effeilTowerToTrocaderoEdge);
+            Assert.True(weightedEdges[1] == trocaderoToArcDeTriomphe);
+            Assert.True(weightedEdges[2] == arcDeTriompheToMontmartre);
         }
     }
 }

@@ -9,25 +9,29 @@ namespace TripWay.Library
 {
     public class Graph
     {
-        private IList<WeightedEdge> Edges;
-        private IList<Vertex> Vertices;
+        private IList<WeightedEdge> edges;
+        private IList<Vertex> vertices;
         private string name;
 
         public Graph(string name)
         {
             this.name = name;
-            this.Edges = new List<WeightedEdge>();
-            this.Vertices = new List<Vertex>();
+            this.edges = new List<WeightedEdge>();
+            this.vertices = new List<Vertex>();
         }
+
+        public IList<Vertex> Vertices => this.vertices;
+
+        public Func<string,Vertex> FindVertex => vertexToFind => this.vertices.FirstOrDefault(v => v.Name == vertexToFind);
 
         public void AddEdge(WeightedEdge edge)
         {
-            this.Edges.Add(edge);
+            this.edges.Add(edge);
         }
 
         public void AddVertex(Vertex vertex)
         {
-            this.Vertices.Add(vertex);
+            this.vertices.Add(vertex);
         }
 
         public IList<WeightedEdge> MinimumSpanningTree(Vertex startVertex)
@@ -39,9 +43,9 @@ namespace TripWay.Library
             Action<Vertex> visit = vertex =>
             {
                 visited[vertex] = true;
-                var edges = Edges.Where(edge => edge.From == vertex);
+                var fromEdges = edges.Where(edge => edge.From == vertex);
 
-                foreach (var edge in edges)
+                foreach (var edge in fromEdges)
                 {
                     if (!visited.ContainsKey(edge.To))
                         pq2.Enqueue(edge, edge.Weight);
@@ -62,9 +66,38 @@ namespace TripWay.Library
             return result;
         }
 
-        public IList<WeightedEdge> Dijkstra(Vertex startingVertex)
+        public Tuple<Dictionary<Vertex, WeightedEdge>, Dictionary<Vertex, int>> Dijkstra(Vertex startingVertex, int initialStartDistance)
         {
+            var distances = new Dictionary<Vertex, int>();
+            distances[startingVertex] = initialStartDistance;
+            var priorityQueue =  new SimplePriorityQueue<DijkstraNode>();
+            Dictionary<Vertex,WeightedEdge> result = new Dictionary<Vertex,WeightedEdge>();
 
+            priorityQueue.Enqueue(new DijkstraNode(){Vertex = startingVertex, Distance= initialStartDistance},initialStartDistance);
+
+
+            while(priorityQueue.Any())
+            {
+                var nextVertex = priorityQueue.Dequeue().Vertex;
+                if(!distances.ContainsKey(nextVertex))
+                    continue;
+                
+                var distanceNextVertex = distances[nextVertex];
+
+                foreach (var edge in this.edges.Where(e => e.From == nextVertex))
+                {
+                    var distanceToVertex = distances.ContainsKey(edge.To) ? distances[edge.To] : 0;
+
+                    if(distanceToVertex == 0 || distanceToVertex > edge.Weight + distanceNextVertex)
+                    {
+                        distances[edge.To] = edge.Weight + distanceNextVertex;
+                        result.Add(edge.To,edge);
+                        priorityQueue.Enqueue(new DijkstraNode(){Vertex=edge.To, Distance=edge.Weight+distanceNextVertex},edge.Weight+distanceNextVertex);
+                    }
+                }
+            }
+
+            return new Tuple<Dictionary<Vertex, WeightedEdge>, Dictionary<Vertex, int>>(result, distances);
         }
 
         internal class DijkstraNode
@@ -90,6 +123,15 @@ namespace TripWay.Library
                 }
             }
 
+            public static bool operator <(DijkstraNode lhs, DijkstraNode rhs)
+            {
+                return lhs.Distance < rhs.Distance;
+            }
+            
+            public static bool operator >(DijkstraNode lhs, DijkstraNode rhs)
+            {
+                return lhs.Distance > rhs.Distance;
+            }
         }
     }
 }

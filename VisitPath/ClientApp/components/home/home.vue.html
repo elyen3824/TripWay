@@ -1,0 +1,50 @@
+<template>
+    <div>
+        <h1>Visit Path</h1>
+        <p>Welcome to visit path, the way to find the shortest path.</p>
+        <h2>Vertex to add:</h2>
+        <br/>
+        <label for="vertex">Vertex Name:</label>
+        <input type="text" v-model="currentVertex" id="vertex">
+        <button v-on:click="addVertex">Add Vertex</button>
+        <h2>Edges from Vertex:</h2>
+        <label for="vertexFrom">Origin vertex</label>
+        <select id="vertexFrom" v-model="vertexFromSelected">
+            <option v-for="vertex in vertices" v-bind:value="vertex">
+              {{ vertex }}
+            </option>
+        </select>
+        <label for="vertexDestination">Vertex Destination:</label>
+        <select id="vertexDestination" v-model="vertexToSelected">
+            <option v-for="vertex in vertices" v-bind:value="vertex">
+              {{ vertex }}
+            </option>
+        </select>
+        <label for="distanceFromCurentVertex">Distance:</label>
+        <input type="text" v-model="distanceFromCurentVertex" id="distanceFromCurentVertex">
+        <br/>
+        <button v-on:click="addEdge">Add edge</button>
+        <br/>
+        <label for="vertices">Vertices:</label>
+        <ul id="vertices">
+            <li v-for="vertex in vertices">
+                {{ vertex }}
+            </li>
+        </ul>
+        <label for="edges">Edges:</label>
+        <ul id="edges">
+            <li v-for="edge in edges">
+                {{ edge.vertexfrom }} {{ edge.vertexTo }} {{ edge.distance }}
+            </li>
+        </ul>
+        <h2>Calculate shortest path:</h2>
+        <label for="FromVertex">From:</label>
+        <select id="FromVertex" v-model="fromVertex">
+            <option v-for="vertex in vertices" v-bind:value="vertex">
+              {{ vertex }}
+            </option>
+        </select>
+        <button v-on:click="getShortestPath">Calculate</button>        
+    </div>
+</template>
+<script src="./home.ts"></script>

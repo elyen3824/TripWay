@@ -4,25 +4,21 @@
    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
    "version": "0.2.0",
    "configurations": [
-        {
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bin/Debug/netcoreapp2.0/TripWayCSharp.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
-        }
+ {
+     "name": "visitpath Docker",
+     "type": "coreclr",
+     "request": "launch",
+     "program": "/app/VisitPath.dll",
+     "cwd": "/app",
+     "sourceFileMap": {
+         "/app": "${workspaceRoot}"
+     },
+     "pipeTransport": {
+         "pipeCwd": "${workspaceRoot}",
+         "pipeProgram": "/bin/bash",
+         "pipeArgs": ["-c", "docker exec -i tripwaycsharp_tripwaycsharp_1 /vsdbg/vsdbg --interpreter=vscode"],
+         "debuggerPath": "/vsdbg/vsdbg"
+     }
+ }
     ]
 }
