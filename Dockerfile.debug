@@ -1,9 +1,13 @@
-
-FROM microsoft/aspnetcore
-WORKDIR /vsdbg
-RUN apt-get update && apt-get install -y --no-install-recommends gnupg
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
-RUN apt-get install -y nodejs
-RUN apt-get update && apt-get install -y --no-install-recommends unzip && rm -rf /var/lib/apt/lists/* && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+FROM microsoft/dotnet
+ENV NUGET_XMLDOC_MODE skip
+ARG CLRDBG_VERSION=VS2015U2
+WORKDIR /clrdbg
+RUN curl -SL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-release/scripts/GetClrDbg.sh --output GetClrDbg.sh \
+    && chmod 700 GetClrDbg.sh \
+    && ./GetClrDbg.sh $CLRDBG_VERSION \
+    && rm GetClrDbg.sh
 WORKDIR /app
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENV ASPNETCORE_URLS http://*:80
+EXPOSE 80
+ENTRYPOINT ["/bin/bash", "-c", "if [ -z \"$REMOTE_DEBUGGING\" ]; then dotnet TripWayCSharp.dll; else sleep infinity; fi"]
+COPY . /app

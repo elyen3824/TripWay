@@ -1,7 +1,6 @@
-
-FROM microsoft/aspnetcore
-LABEL Name=tripwaycsharp Version=0.0.1 
-ARG source=./VisitPath/obj/Docker/publish
+FROM microsoft/dotnet
 WORKDIR /app
-COPY $source .
-ENTRYPOINT dotnet VisitPath.dll
+ENV ASPNETCORE_URLS http://*:80
+EXPOSE 80
+ENTRYPOINT ["dotnet", "TripWayCSharp.dll"]
+COPY . /app

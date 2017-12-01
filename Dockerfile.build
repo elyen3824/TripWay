@@ -9,4 +9,6 @@ WORKDIR /app
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
 WORKDIR /app/VisitPath
-ENTRYPOINT [ "dotnet","publish", "VisitPath.csproj", "-c Release", "-o ./obj/Docker/publish" ]
+COPY ./VisitPath/webpack.config.js .
+COPY ./VisitPath/webpack.config.vendor.js .
+ENTRYPOINT [ "dotnet","publish", "VisitPath.csproj", "-o ./obj/Docker/publish" ]

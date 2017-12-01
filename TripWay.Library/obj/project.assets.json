@@ -35,6 +35,41 @@
           "lib/netstandard1.0/Priority Queue.dll": {}
         }
       }
+    },
+    ".NETStandard,Version=v2.0/debian.8-x64": {
+      "Microsoft.NETCore.Platforms/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "NETStandard.Library/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "build": {
+          "build/netstandard2.0/NETStandard.Library.targets": {}
+        }
+      },
+      "OptimizedPriorityQueue/4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Priority Queue.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Priority Queue.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -268,6 +303,11 @@
         ],
         "assetTargetFallback": true,
         "warn": true
+      }
+    },
+    "runtimes": {
+      "debian.8-x64": {
+        "#import": []
       }
     }
   }
