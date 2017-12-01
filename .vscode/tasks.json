@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/TripWayCSharp.csproj"
+                "${workspaceFolder}/VisitPath/VisitPath.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -289,3 +289,9 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+TripWay.Library/obj/project.assets.json
+TripWay.Library/obj/TripWay.Library.csproj.nuget.cache
+TripWay.Test/obj/project.assets.json
+TripWay.Test/obj/TripWay.Test.csproj.nuget.cache
+TripWay.Test/obj/Debug/netcoreapp2.0/TripWay.Test.AssemblyInfo.cs
