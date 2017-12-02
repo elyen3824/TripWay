@@ -2,6 +2,8 @@
     <div>
         <h1>Visit Path</h1>
         <p>Welcome to visit path, the way to find the shortest path.</p>
+        <label for="name">Vertex Name:</label>
+        <input type="text" v-model="visitPathName" id="name">
         <h2>Vertex to add:</h2>
         <br/>
         <label for="vertex">Vertex Name:</label>
@@ -10,14 +12,14 @@
         <h2>Edges from Vertex:</h2>
         <label for="vertexFrom">Origin vertex</label>
         <select id="vertexFrom" v-model="vertexFromSelected">
-            <option v-for="vertex in vertices" v-bind:value="vertex">
-              {{ vertex }}
+            <option v-for="vertex in vertices" v-bind:value="vertex.name">
+              {{ vertex.name }}
             </option>
         </select>
         <label for="vertexDestination">Vertex Destination:</label>
         <select id="vertexDestination" v-model="vertexToSelected">
-            <option v-for="vertex in vertices" v-bind:value="vertex">
-              {{ vertex }}
+            <option v-for="vertex in vertices" v-bind:value="vertex.name">
+              {{ vertex.name }}
             </option>
         </select>
         <label for="distanceFromCurentVertex">Distance:</label>
@@ -28,20 +30,20 @@
         <label for="vertices">Vertices:</label>
         <ul id="vertices">
             <li v-for="vertex in vertices">
-                {{ vertex }}
+                {{ vertex.name }}
             </li>
         </ul>
         <label for="edges">Edges:</label>
         <ul id="edges">
             <li v-for="edge in edges">
-                {{ edge.vertexfrom }} {{ edge.vertexTo }} {{ edge.distance }}
+                {{ edge.from.name }} {{ edge.to.name }} {{ edge.weight }}
             </li>
         </ul>
         <h2>Calculate shortest path:</h2>
         <label for="FromVertex">From:</label>
         <select id="FromVertex" v-model="fromVertex">
-            <option v-for="vertex in vertices" v-bind:value="vertex">
-              {{ vertex }}
+            <option v-for="vertex in vertices" v-bind:value="vertex.name">
+              {{ vertex.name }}
             </option>
         </select>
         <button v-on:click="getShortestPath">Calculate</button>        

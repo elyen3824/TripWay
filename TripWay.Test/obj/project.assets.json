@@ -5676,11 +5676,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Test/TripWay.Test.csproj",
+      "projectUniqueName": "/home/julien/Github/TripWay/TripWay.Test/TripWay.Test.csproj",
       "projectName": "TripWay.Test",
-      "projectPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Test/TripWay.Test.csproj",
+      "projectPath": "/home/julien/Github/TripWay/TripWay.Test/TripWay.Test.csproj",
       "packagesPath": "/home/julien/.nuget/packages/",
-      "outputPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Test/obj/",
+      "outputPath": "/home/julien/Github/TripWay/TripWay.Test/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -5697,8 +5697,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/home/julien/RiderProjects/TripWayCSharp/TripWay.Library/TripWay.Library.csproj": {
-              "projectPath": "/home/julien/RiderProjects/TripWayCSharp/TripWay.Library/TripWay.Library.csproj"
+            "/home/julien/Github/TripWay/TripWay.Library/TripWay.Library.csproj": {
+              "projectPath": "/home/julien/Github/TripWay/TripWay.Library/TripWay.Library.csproj"
             }
           }
         }

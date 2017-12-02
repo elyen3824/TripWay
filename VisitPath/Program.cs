@@ -14,13 +14,13 @@ namespace VisitPath
     {
         public static void Main(string[] args)
         {
-            #if !DEBUG
             BuildWebHost(args).Run();
-            #endif
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
     }

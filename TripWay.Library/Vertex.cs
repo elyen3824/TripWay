@@ -1,3 +1,7 @@
+using System;
+using System.Security.Cryptography;
+using System.Text;
+
 namespace TripWay.Library
 {
     public class Vertex
@@ -8,5 +12,6 @@ namespace TripWay.Library
         {
             this.Name = name;
         }
+
     }
 }

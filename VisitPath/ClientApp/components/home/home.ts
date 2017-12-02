@@ -1,36 +1,58 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import axios from 'axios'
 
 class Edge
 {
-    vertexfrom:string;
-    vertexTo:string;
-    distance:number;
+    from:Vertex;
+    to:Vertex;
+    weight:number;
  
     /**
      * Build a new wdge giving the  vertex from the vertex to nd the distance between the vertices
      */
     constructor(vertexFrom:string, vertexTo:string, distance:number) {
-        this.vertexfrom = vertexFrom;
-        this.vertexTo = vertexTo;
-        this.distance = distance;
+        this.from = new Vertex(vertexFrom);
+        this.to = new Vertex(vertexTo);
+        this.weight = distance;
+    }
+}
+
+class Vertex {
+    name: string;
+
+    constructor(name:string) {
+        this.name = name;
+    }
+}
+
+class Data {
+    start: string;
+    edges: Edge[];
+    vertices: Vertex[];
+    graphName: string;
+
+    constructor(name:string, vertices:Vertex[], edges:Edge[],start:string) {
+        this.graphName = name;
+        this.vertices = vertices;
+        this.edges = edges;
+        this.start = start;
     }
 }
 
 @Component
 export default class CounterComponent extends Vue {
-    vertices: string[] = [];
+    vertices: Vertex[] = [];
     edges: Edge[]= [];
     currentVertex: string = "";
     vertexFromSelected: string ="";
     vertexToSelected:string ="";
     distanceFromCurentVertex:number =0;
     fromVertex: string="";
+    visitPathName: string="";
 
     addVertex() {
         if(this.currentVertex != "")
-            this.vertices.push(this.currentVertex);
+            this.vertices.push(new Vertex(this.currentVertex));
     }
 
     addEdge(){
@@ -40,15 +62,28 @@ export default class CounterComponent extends Vue {
 
     getShortestPath(){
         if(this.fromVertex != "")
-            axios.post("api/Graph/MinimumSpanningTree",{
-                "InitialVertex": this.fromVertex,
-                "Vertices":this.vertices,
-                "Edges":this.edges
-            }) .then(function (response) {
-                console.log(response.data);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });    
+        {
+            let data = new Data(this.visitPathName, this.vertices, this.edges, this.fromVertex);
+
+            console.log(data);
+
+            let fetchData = {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers:{
+                    "Accept":"application/json",
+                    "Content-Type":"application/json"
+                }
+            };
+
+            console.log(fetchData);
+            
+            fetch('api/VisitPath/CalculateMinimumSpanningTree', fetchData)
+                .then(response => response.json() as Promise<Edge[]>)
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {console.log(error)});
+        }    
     }
 }

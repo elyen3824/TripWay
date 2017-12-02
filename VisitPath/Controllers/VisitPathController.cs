@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TripWay.Library;
+using VisitPath.Model;
+using VisitPath.Command;
 
 namespace VisitPath.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class VisitPathController : Controller
     {
+        [HttpPost("[action]")]
+        public IEnumerable<WeightedEdge> CalculateMinimumSpanningTree([FromBody]MinimumSpanningTreeData data, [FromServices]ICalculateSpanningTreeCommand command)
+        {
+            return command.CalculateSpanningTree(data);
+        }
+
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
